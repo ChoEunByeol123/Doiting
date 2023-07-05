@@ -116,6 +116,9 @@
                                                 <state key="normal" title="회원가입">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="Y7c-HP-wwx" kind="presentation" id="VHg-tn-s2z"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -131,6 +134,7 @@
                             <constraint firstItem="ca1-OU-Zrw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="fQk-jV-s7X"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="b4K-cV-fQI"/>
                     <connections>
                         <outlet property="btnSignIn" destination="V9Y-8k-oo2" id="MGW-3S-HJv"/>
                         <outlet property="btnSignUp" destination="rr4-wr-Lyk" id="s8v-un-y9d"/>
@@ -139,32 +143,170 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="1759.5419847328244" y="-35.211267605633807"/>
         </scene>
         <!--약관동의-->
         <scene sceneID="wOP-9W-ecY">
             <objects>
-                <viewController id="Y7c-HP-wwx" sceneMemberID="viewController">
+                <viewController id="Y7c-HP-wwx" customClass="SignUp1ViewController" customModule="Doiting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="emd-Lh-jDe">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-ot-XCX">
-                                <rect key="frame" x="16" y="127" width="361" height="667"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-ot-XCX">
+                                <rect key="frame" x="20" y="72" width="353" height="746"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZBw-mg-2pS">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="51"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZBw-mg-2pS">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="51"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="약관에 동의해 주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eX9-TT-NK6">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="28.666666666666668"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eX9-TT-NK6">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="29"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="약관에">
+                                                        <attributes>
+                                                            <font key="NSFont" size="24" name="NanumSquareOTFEB"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="24"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <font key="NSFont" size="24" name="NanumSquareOTFEB"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="동의해">
+                                                        <attributes>
+                                                            <font key="NSFont" size="24" name="NanumSquareOTFEB"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="24"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <font key="NSFont" size="24" name="NanumSquareOTFEB"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="주세요">
+                                                        <attributes>
+                                                            <font key="NSFont" size="24" name="NanumSquareOTFEB"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="24"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=".">
+                                                        <attributes>
+                                                            <font key="NSFont" size="24" name="NanumSquareOTFEB"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여러분의 개인정보와 서비스 이용 권리 잘 지켜드릴게요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pk2-Da-9du">
-                                                <rect key="frame" x="0.0" y="36.666666666666657" width="361" height="14.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" name="FontColorGray"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pk2-Da-9du">
+                                                <rect key="frame" x="0.0" y="37" width="262.33333333333331" height="14"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="여러분의">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="개인정보와">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="서비스">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="이용">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="권리">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="잘">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" ">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="지켜드릴게요">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=".">
+                                                        <attributes>
+                                                            <color key="NSColor" name="FontColorGray"/>
+                                                            <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -173,30 +315,138 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PpJ-HI-R27">
-                                        <rect key="frame" x="0.0" y="67" width="361" height="540"/>
+                                        <rect key="frame" x="0.0" y="75" width="353" height="603"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="iY4-de-f5G">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PEw-jG-JV1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="83.333333333333329" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="83.666666666666671" height="20.333333333333332"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Npd-8E-kzj">
                                                                 <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
                                                                 <color key="tintColor" name="FontColorLightGray"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모두 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp8-ay-Pnp">
-                                                                <rect key="frame" x="23.666666666666668" y="0.0" width="59.666666666666657" height="20.333333333333332"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rp8-ay-Pnp">
+                                                                <rect key="frame" x="23.666666666666664" y="0.0" width="59.999999999999993" height="20.333333333333332"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="모두">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                            <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment content=" ">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment content="동의">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                            <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 이용을 위해 아래 약관에 모두 동의합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9D-Ss-4be">
-                                                        <rect key="frame" x="0.0" y="29.333333333333343" width="231.66666666666666" height="20.666666666666671"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <color key="textColor" name="FontColorGray"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9D-Ss-4be">
+                                                        <rect key="frame" x="0.0" y="29.333333333333343" width="231" height="20.666666666666671"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="서비스">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="이용을">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="위해">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="아래">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="약관에">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="모두">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="동의합니다">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=".">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="FontColorGray"/>
+                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -204,135 +454,387 @@
                                                     <constraint firstAttribute="height" constant="50" id="mqK-nF-WEi"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="w9o-4d-nTv">
-                                                <rect key="frame" x="0.0" y="66" width="361" height="474"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2zr-tQ-qnp">
+                                                <rect key="frame" x="0.0" y="66" width="353" height="1"/>
+                                                <color key="backgroundColor" name="FontColorLightGray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="ah2-lo-sJh"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqn-dh-dn7">
+                                                <rect key="frame" x="0.0" y="83" width="353" height="520"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eef-u0-fNK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
+                                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="w9o-4d-nTv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="129.33333333333334"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="91M-0Z-xbM">
-                                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
-                                                                <color key="tintColor" name="FontColorLightGray"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="19.670000000000002" id="bGI-30-YtY"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(필수) 서비스 이용약관 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rki-jG-Is3">
-                                                                <rect key="frame" x="25.666666666666657" y="0.0" width="308.33333333333337" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20.329999999999998" id="DIP-aF-5iS"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbZ-fw-6Py">
-                                                                <rect key="frame" x="340" y="0.0" width="21" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="21" id="C0o-Ov-bYv"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" name="FontColorLightGray"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="wjN-Ob-jID">
-                                                        <rect key="frame" x="0.0" y="151.33333333333331" width="361" height="20.333333333333343"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b1F-ZP-RJI">
-                                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
-                                                                <color key="tintColor" name="FontColorLightGray"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="19.670000000000002" id="HvJ-aM-NAd"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(필수) 개인정보 처리방침 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMw-Ei-gAr">
-                                                                <rect key="frame" x="25.666666666666657" y="0.0" width="308.33333333333337" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20.329999999999998" id="4pd-EU-fzH"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5c-8c-TSR">
-                                                                <rect key="frame" x="340" y="0.0" width="21" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="21" id="caX-dd-bjX"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" name="FontColorLightGray"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-eI-S8u">
-                                                        <rect key="frame" x="0.0" y="302.33333333333337" width="361" height="20.333333333333314"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="F7M-km-ETw">
-                                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
-                                                                <color key="tintColor" name="FontColorLightGray"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="19.670000000000002" id="Vyx-sU-1kb"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(필수) 민감정보 수집 및 이용 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQw-vn-pMV">
-                                                                <rect key="frame" x="25.666666666666657" y="0.0" width="308.33333333333337" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20.329999999999998" id="BNi-JA-tnr"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnu-yT-YIk">
-                                                                <rect key="frame" x="340" y="0.0" width="21" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="21" id="Bcw-YQ-j90"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" name="FontColorLightGray"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vkM-8P-5Dv">
-                                                        <rect key="frame" x="0.0" y="453.66666666666663" width="361" height="20.333333333333314"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3aV-Il-iv9">
-                                                                <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
-                                                                <color key="tintColor" name="FontColorLightGray"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="19.670000000000002" id="n50-Xo-Ll9"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(필수) 마케팅 수신 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyw-L4-0xZ">
-                                                                <rect key="frame" x="25.666666666666657" y="0.0" width="308.33333333333337" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20.329999999999998" id="QAR-9y-BEa"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP2-pS-erb">
-                                                                <rect key="frame" x="340" y="0.0" width="21" height="20.333333333333332"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="21" id="EKa-GD-dvn"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" name="FontColorLightGray"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eef-u0-fNK">
+                                                                <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="91M-0Z-xbM">
+                                                                        <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
+                                                                        <color key="tintColor" name="FontColorLightGray"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="19.670000000000002" id="bGI-30-YtY"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rki-jG-Is3">
+                                                                        <rect key="frame" x="25.666666666666657" y="0.0" width="296.33333333333337" height="20.333333333333332"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="20.329999999999998" id="DIP-aF-5iS"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="(">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="필수">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=") ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="서비스">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="이용약관">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="동의">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbZ-fw-6Py">
+                                                                        <rect key="frame" x="328" y="0.0" width="25" height="20.333333333333332"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="25" id="C0o-Ov-bYv"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="보기">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="FontColorLightGray"/>
+                                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="wjN-Ob-jID">
+                                                                <rect key="frame" x="0.0" y="36.333333333333314" width="353" height="20.333333333333329"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b1F-ZP-RJI">
+                                                                        <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
+                                                                        <color key="tintColor" name="FontColorLightGray"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="19.670000000000002" id="HvJ-aM-NAd"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMw-Ei-gAr">
+                                                                        <rect key="frame" x="25.666666666666657" y="0.0" width="296.33333333333337" height="20.333333333333332"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="20.329999999999998" id="4pd-EU-fzH"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="(">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="필수">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=") ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="개인정보">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="처리방침">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="동의">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5c-8c-TSR">
+                                                                        <rect key="frame" x="328" y="0.0" width="25" height="20.333333333333332"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="25" id="caX-dd-bjX"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="보기">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="FontColorLightGray"/>
+                                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Cbg-eI-S8u">
+                                                                <rect key="frame" x="0.0" y="72.666666666666686" width="353" height="20.333333333333329"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="F7M-km-ETw">
+                                                                        <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
+                                                                        <color key="tintColor" name="FontColorLightGray"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="19.670000000000002" id="Vyx-sU-1kb"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQw-vn-pMV">
+                                                                        <rect key="frame" x="25.666666666666657" y="0.0" width="296.33333333333337" height="20.333333333333332"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="20.329999999999998" id="BNi-JA-tnr"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="(">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="필수">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=") ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="민감정보">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="수집">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="및">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="이용">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="동의">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnu-yT-YIk">
+                                                                        <rect key="frame" x="328" y="0.0" width="25" height="20.333333333333332"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="25" id="Bcw-YQ-j90"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="보기">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="FontColorLightGray"/>
+                                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vkM-8P-5Dv">
+                                                                <rect key="frame" x="0.0" y="109" width="353" height="20.333333333333343"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3aV-Il-iv9">
+                                                                        <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
+                                                                        <color key="tintColor" name="FontColorLightGray"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="19.670000000000002" id="n50-Xo-Ll9"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyw-L4-0xZ">
+                                                                        <rect key="frame" x="25.666666666666657" y="0.0" width="296.33333333333337" height="20.333333333333332"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="20.329999999999998" id="QAR-9y-BEa"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="(">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="필수">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=") ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="마케팅">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="수신">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content=" ">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                            <fragment content="동의">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="16"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP2-pS-erb">
+                                                                        <rect key="frame" x="328" y="0.0" width="25" height="20.333333333333332"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="25" id="EKa-GD-dvn"/>
+                                                                        </constraints>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="보기">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="FontColorLightGray"/>
+                                                                                    <font key="NSFont" size="12" name="NanumSquareOTFR"/>
+                                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="w9o-4d-nTv" secondAttribute="trailing" id="35M-Y4-gFs"/>
+                                                    <constraint firstItem="w9o-4d-nTv" firstAttribute="top" secondItem="fqn-dh-dn7" secondAttribute="top" id="Ajw-lG-RfH"/>
+                                                    <constraint firstItem="w9o-4d-nTv" firstAttribute="leading" secondItem="fqn-dh-dn7" secondAttribute="leading" id="uHE-Rg-ZWf"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="2zr-tQ-qnp" secondAttribute="trailing" id="KyM-qs-i9r"/>
+                                            <constraint firstItem="2zr-tQ-qnp" firstAttribute="leading" secondItem="PpJ-HI-R27" secondAttribute="leading" id="pMi-3I-22t"/>
+                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYn-Tf-2vV">
-                                        <rect key="frame" x="0.0" y="623" width="361" height="44"/>
+                                        <rect key="frame" x="0.0" y="702" width="353" height="44"/>
                                         <color key="backgroundColor" name="MainColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="qhN-3y-DJl"/>
@@ -342,8 +844,15 @@
                                         <state key="normal" title="로그인">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="plain" title="다음">
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="다음">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name="NanumSquareOTFB"/>
+                                                        <font key="NSOriginalFont" metaFont="system" size="15"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
@@ -359,35 +868,25 @@
                         <viewLayoutGuide key="safeArea" id="OrG-u0-vxJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eTc-ot-XCX" firstAttribute="top" secondItem="OrG-u0-vxJ" secondAttribute="top" constant="24" id="5uE-Md-i9q"/>
-                            <constraint firstItem="eTc-ot-XCX" firstAttribute="leading" secondItem="OrG-u0-vxJ" secondAttribute="leading" constant="16" id="c9u-1g-2DF"/>
-                            <constraint firstItem="OrG-u0-vxJ" firstAttribute="trailing" secondItem="eTc-ot-XCX" secondAttribute="trailing" constant="16" id="yos-vw-dkQ"/>
+                            <constraint firstItem="eTc-ot-XCX" firstAttribute="top" secondItem="OrG-u0-vxJ" secondAttribute="top" constant="72" id="5uE-Md-i9q"/>
+                            <constraint firstItem="eTc-ot-XCX" firstAttribute="leading" secondItem="OrG-u0-vxJ" secondAttribute="leading" constant="20" id="c9u-1g-2DF"/>
+                            <constraint firstItem="OrG-u0-vxJ" firstAttribute="trailing" secondItem="eTc-ot-XCX" secondAttribute="trailing" constant="20" id="yos-vw-dkQ"/>
                             <constraint firstItem="OrG-u0-vxJ" firstAttribute="bottom" secondItem="eTc-ot-XCX" secondAttribute="bottom" constant="24" id="zOp-kf-pDg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="약관동의" id="rjz-et-Sdl"/>
+                    <connections>
+                        <outlet property="btnNext" destination="OYn-Tf-2vV" id="CLE-ge-DCI"/>
+                        <outlet property="check1" destination="91M-0Z-xbM" id="ZTy-FF-0Z1"/>
+                        <outlet property="check2" destination="b1F-ZP-RJI" id="Kc8-T2-SIJ"/>
+                        <outlet property="check3" destination="F7M-km-ETw" id="jen-oi-hT9"/>
+                        <outlet property="check4" destination="3aV-Il-iv9" id="YkJ-ZI-jxU"/>
+                        <outlet property="checkAll" destination="Npd-8E-kzj" id="GNT-OV-C7W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZs-Jh-VEI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866.4122137404579" y="-35.211267605633807"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cQS-4R-fTw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h8j-9Y-V0P" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ywX-Gn-9vA">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y7c-HP-wwx" kind="relationship" relationship="rootViewController" id="Bon-qP-rHc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pB9-3n-x3G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="939.69465648854953" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="2831" y="-35"/>
         </scene>
     </scenes>
     <resources>
@@ -396,10 +895,10 @@
         <image name="NaverIcon" width="48" height="48"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="FontColorGray">
-            <color red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="FontColorLightGray">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.20999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.20999999344348907" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainColor">
             <color red="0.42399999999999999" green="0.36099999999999999" blue="0.90600000000000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
