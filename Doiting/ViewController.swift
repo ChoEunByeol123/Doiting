@@ -11,6 +11,26 @@ class ViewController: UIViewController {
         
         setFont()
         setRadius()
+        setNavigation()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func setNavigation(){
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+            backBarButtonItem.tintColor = UIColor(named: "FontColorLightGray")
+            self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     func setFont(){
@@ -35,5 +55,10 @@ class ViewController: UIViewController {
         btnSignIn.layer.cornerRadius = 10
         btnSignUp.layer.cornerRadius = 10
     }
+    
+    
+    
+ 
+    
 }
 
