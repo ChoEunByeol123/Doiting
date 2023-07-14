@@ -1156,23 +1156,48 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="D90-T3-EOl">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqd-y7-hsU">
                                                                 <rect key="frame" x="0.0" y="35.333333333333371" width="353" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="통신사 선택" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9K-ge-faa">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJb-3o-S5N">
                                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
-                                                                        <attributedString key="attributedText"/>
-                                                                        <textInputTraits key="textInputTraits"/>
-                                                                    </textField>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="선택해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="koH-Ee-46G">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="334.33333333333331" height="40"/>
+                                                                                <attributedString key="attributedText"/>
+                                                                                <textInputTraits key="textInputTraits"/>
+                                                                            </textField>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Dde-7L-GjN">
+                                                                                <rect key="frame" x="334.33333333333331" y="5.3333333333333321" width="18.666666666666686" height="29.999999999999996"/>
+                                                                                <color key="tintColor" name="FontColorLightGray"/>
+                                                                            </imageView>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZa-K8-lzP">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <connections>
+                                                                            <action selector="btnDropDownTelTapped:" destination="U4Z-MY-d6M" eventType="touchUpInside" id="a2M-0b-y1l"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="Rex-zz-scN"/>
+                                                                    <constraint firstItem="CJb-3o-S5N" firstAttribute="top" secondItem="zqd-y7-hsU" secondAttribute="top" id="4nd-er-10v"/>
+                                                                    <constraint firstItem="CJb-3o-S5N" firstAttribute="leading" secondItem="zqd-y7-hsU" secondAttribute="leading" id="CIQ-oe-c0n"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="CJb-3o-S5N" secondAttribute="trailing" id="HZ3-UM-DKD"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="MhW-nq-CFw"/>
+                                                                    <constraint firstItem="bZa-K8-lzP" firstAttribute="top" secondItem="zqd-y7-hsU" secondAttribute="top" id="OeW-Dk-0uM"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="bZa-K8-lzP" secondAttribute="bottom" id="YVe-R2-Rxc"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="CJb-3o-S5N" secondAttribute="bottom" id="dTr-iI-N3u"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="bZa-K8-lzP" secondAttribute="trailing" id="g41-Lh-UmB"/>
+                                                                    <constraint firstItem="bZa-K8-lzP" firstAttribute="leading" secondItem="zqd-y7-hsU" secondAttribute="leading" id="sQo-JP-eLE"/>
                                                                 </constraints>
-                                                            </stackView>
+                                                            </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="D90-T3-EOl" firstAttribute="leading" secondItem="tV3-yU-Bnr" secondAttribute="leading" id="Ram-ro-Kmi"/>
-                                                            <constraint firstAttribute="trailing" secondItem="D90-T3-EOl" secondAttribute="trailing" id="xfF-L9-OmU"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zqd-y7-hsU" secondAttribute="trailing" id="2pv-7d-8cR"/>
+                                                            <constraint firstItem="zqd-y7-hsU" firstAttribute="leading" secondItem="tV3-yU-Bnr" secondAttribute="leading" id="Lz6-Ov-7AD"/>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="H6C-1X-hAA">
@@ -1227,7 +1252,7 @@
                                         <constraints>
                                             <constraint firstItem="EuV-m9-tam" firstAttribute="leading" secondItem="GvI-ZI-Pml" secondAttribute="leading" id="E9s-dr-5DN"/>
                                             <constraint firstAttribute="trailing" secondItem="EuV-m9-tam" secondAttribute="trailing" id="Fak-ha-occ"/>
-                                            <constraint firstAttribute="bottom" secondItem="EuV-m9-tam" secondAttribute="bottom" constant="-10.333333333333314" id="X8Q-wq-YxX"/>
+                                            <constraint firstAttribute="bottom" secondItem="EuV-m9-tam" secondAttribute="bottom" constant="15" id="X8Q-wq-YxX"/>
                                             <constraint firstItem="pgZ-ok-9uw" firstAttribute="trailing" secondItem="EuV-m9-tam" secondAttribute="trailing" id="maZ-zV-wYn"/>
                                             <constraint firstItem="EuV-m9-tam" firstAttribute="leading" secondItem="pgZ-ok-9uw" secondAttribute="leading" id="yRa-SK-HoR"/>
                                             <constraint firstItem="EuV-m9-tam" firstAttribute="top" secondItem="GvI-ZI-Pml" secondAttribute="top" id="z6c-OS-Esb"/>
@@ -1287,11 +1312,18 @@
                         <outlet property="btnNext" destination="7Sd-BK-LMw" id="0E9-mn-NhM"/>
                         <outlet property="btnSexFemale" destination="Axv-vb-zdK" id="3GA-tB-MgP"/>
                         <outlet property="btnSexMale" destination="eCQ-IK-3g2" id="l6D-ph-9w9"/>
+                        <outlet property="dropTelView" destination="zqd-y7-hsU" id="reW-R7-HXJ"/>
+                        <outlet property="fieldBirthDay" destination="Oqu-8f-2vM" id="ABz-ur-gs2"/>
+                        <outlet property="fieldName" destination="Qh0-KR-Sc0" id="ztq-ab-3La"/>
+                        <outlet property="fieldPhoneNum" destination="O8Q-G0-dSF" id="4Pw-jQ-akG"/>
+                        <outlet property="fieldTel" destination="zqd-y7-hsU" id="6gV-Jh-OjA"/>
+                        <outlet property="iconTel" destination="Dde-7L-GjN" id="zME-Qo-HkI"/>
+                        <outlet property="textTel" destination="koH-Ee-46G" id="tvT-sa-qy9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="liT-c8-LoZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4566" y="-35"/>
+            <point key="canvasLocation" x="4565.6488549618316" y="-35.211267605633807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sSW-VX-jK7">
@@ -1318,6 +1350,7 @@
         <image name="KakaoIcon" width="48" height="48"/>
         <image name="NaverIcon" width="48" height="48"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <namedColor name="DisabledColor">
             <color red="0.42399999499320984" green="0.36100000143051147" blue="0.90600001811981201" alpha="0.40000000596046448" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
