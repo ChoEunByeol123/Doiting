@@ -1,0 +1,6 @@
+framework module Pods_Doiting {
+  umbrella header "Pods-Doiting-umbrella.h"
+
+  export *
+  module * { export * }
+}
