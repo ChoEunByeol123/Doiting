@@ -5,12 +5,17 @@ import RxSwift
 import RxCocoa
 import RxKeyboard
 
+// MARK: - Protocol
 protocol KeyboardEvent where Self: UIViewController{
     var transformView: UIView { get }
     func setupKeyboardEvent()
 }
 
+// MARK: - ViewController
+
 class SignUp2ViewController: UIViewController, KeyboardEvent {
+
+    // MARK: - Global Variable
 
     @IBOutlet weak var keyboardWrapperView: UIStackView!
     
@@ -51,6 +56,9 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     var transformView: UIView { return self.view }
     
     
+    var inputFinish: [Bool] = [false, false, false, false, false]
+    
+    
     // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +71,8 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         setupKeyboardEvent()
         
         self.hideKeyboardWhenTappedAround()
+        
+        changeStatusBarBgColor(bgColor: UIColor.white)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -126,22 +136,35 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
             // 선택한 Item을 textField에 넣어준다.
             self!.textTel.text = item
             self!.iconTel.image = UIImage(systemName: "chevron.down")
+            
+            if self!.textTel.text == "" { self!.inputFinish[3] = false }
+            else { self!.inputFinish[3] = true }
+            
+            self!.ChangebtnNextActiveYN()
         }
         
         // 취소 시 처리
         dropdown.cancelAction = { [weak self] in
             // 빈 화면 터치 시 DropDown이 사라지고 아이콘을 원래대로 변경
             self!.iconTel.image = UIImage(systemName: "chevron.down")
+            
+            if self!.textTel.text == "" { self!.inputFinish[3] = false }
+            else { self!.inputFinish[3] = true }
+
+            self!.ChangebtnNextActiveYN()
         }
+
     }
     
     func setDelegate(){
         textFieldName.delegate = self
-        textFieldName.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        textFieldName.addTarget(self, action: #selector(FieldDidChange), for: .editingChanged)
         textFieldBirth.delegate = self
         textFieldBirth.addDoneButtonOnKeyboard()
+        textFieldBirth.addTarget(self, action: #selector(FieldDidChange), for: .editingChanged)
         textFieldPhoneNo.delegate = self
         textFieldPhoneNo.addDoneButtonOnKeyboard()
+        textFieldPhoneNo.addTarget(self, action: #selector(FieldDidChange), for: .editingChanged)
     }
     
     // MARK: - Tapped Function
@@ -180,12 +203,52 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     }
     
     
-    @objc func textFieldDidChange(_ textField: UITextField){
-       // 키보드 업데이트 시 원하는 기능 (실시간 반응)
-        textCountName.text = "\(textField.text?.count ?? 0)/10"
+    @objc func FieldDidChange(_ textField: UITextField){
+        
+        let textCount = textField.text?.count
+        var switchCount = -1
+        
+        switch textField{
+        case textFieldName :
+            switchCount = 0
+            break;
+        case textFieldBirth:
+            switchCount = 2
+            break;
+        case textFieldPhoneNo:
+            switchCount = 4
+            break;
+        default:
+            return;
+        }
+        
+        // 키보드 업데이트 시 원하는 기능 (실시간 반응)
+        if textField == textFieldName{ textCountName.text = "\(textCount ?? 0)/10" }
+        
+        if textField == textFieldName && textCount != 0 { inputFinish[switchCount] = true }
+        else if textField == textFieldBirth && textCount == 8{ inputFinish[switchCount] = true }
+        else if textField == textFieldPhoneNo && (textCount == 10 || textCount == 11) { inputFinish[switchCount] = true }
+        else { inputFinish[switchCount] = false }
+        
+        ChangebtnNextActiveYN()
     }
     
+    
+    func ChangebtnNextActiveYN(){
+        if inputFinish[0] == true && inputFinish[2] == true && inputFinish[3] == true && inputFinish[4] == true{
+            btnNext.backgroundColor = MainColor1
+            btnNext.isEnabled = true
+        }
+        else{
+            btnNext.backgroundColor = DisabledColor
+            btnNext.isEnabled = false
+        }
+    }
+    
+    
 }
+
+// MARK: - 확장 : Responder
 
 // 현재 응답받는 UI를 알아내기 위해 사용 (어떤 textField or textView인지)
 extension UIResponder{
@@ -203,6 +266,9 @@ extension UIResponder{
         Static.responder = self
     }
 }
+
+
+// MARK: - KeyboardEvent
 
 extension KeyboardEvent where Self: UIViewController{
     func setupKeyboardEvent(){
@@ -251,8 +317,26 @@ extension KeyboardEvent where Self: UIViewController{
             transformView.frame.origin.y = 0
         }
     }
+    
+    
+    func changeStatusBarBgColor(bgColor: UIColor?) {
+            if #available(iOS 13.0, *) {
+                let window = UIApplication.shared.windows.first
+                let statusBarManager = window?.windowScene?.statusBarManager
+                
+                let statusBarView = UIView(frame: statusBarManager?.statusBarFrame ?? .zero)
+                statusBarView.backgroundColor = bgColor
+                
+                window?.addSubview(statusBarView)
+            } else {
+                let statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
+                statusBarView?.backgroundColor = bgColor
+            }
+        }
 }
 
+
+// MARK: - 확장 : UITextField
 
 extension UITextField{
     @IBInspectable var wanryoAccesory: Bool{
@@ -269,6 +353,7 @@ extension UITextField{
     func addDoneButtonOnKeyboard(){
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
+        doneToolbar.backgroundColor = .white
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.doneButtonAction))
@@ -285,6 +370,8 @@ extension UITextField{
     }
 }
 
+
+// MARK: - 확장 : UITextFieldDelegate
 
 extension SignUp2ViewController : UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
