@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            backBarButtonItem.tintColor = UIColor(named: "FontColorLightGray")
+            backBarButtonItem.tintColor = UIColor(named: "LightGrayColor")
             self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     

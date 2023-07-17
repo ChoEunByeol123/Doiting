@@ -26,7 +26,7 @@ class SignUp1ViewController: UIViewController {
 
     func setNavigation(){
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-            backBarButtonItem.tintColor = UIColor(named: "FontColorLightGray")
+            backBarButtonItem.tintColor = UIColor(named: "LightGrayColor")
             self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
@@ -63,7 +63,7 @@ class SignUp1ViewController: UIViewController {
     
     // MARK: - [체크박스] 사용자 정의 함수 (@objc)
     let CheckedColor = UIColor(named: "MainColor2")
-    let UnCheckedColor = UIColor(named: "FontColorLightGray")
+    let UnCheckedColor = UIColor(named: "LightGrayColor")
     let DisabledColor = UIColor(named: "DisabledColor")
     let MainColor1 = UIColor(named: "MainColor1")
     

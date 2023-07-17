@@ -15,47 +15,51 @@ protocol KeyboardEvent where Self: UIViewController{
 
 class SignUp2ViewController: UIViewController, KeyboardEvent {
 
-    // MARK: - Global Variable
-
-    @IBOutlet weak var keyboardWrapperView: UIStackView!
-    
-    @IBOutlet weak var btnSexMale: UIButton!
-    @IBOutlet weak var btnSexFemale: UIButton!
-    
+    // MARK: - @IBOutlet
+    // 이름
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textCountName: UILabel!
     
+    // 성별
+    @IBOutlet weak var btnSexMale: UIButton!
+    @IBOutlet weak var btnSexFemale: UIButton!
+    
+    // 생년월일
     @IBOutlet weak var textFieldBirth: UITextField!
+    
+    // 통신사
+    @IBOutlet weak var dropTelView: UIView!
+    @IBOutlet weak var textTel: UITextField!
+    @IBOutlet weak var iconTel: UIImageView!
+    
+    // 휴대폰번호
     @IBOutlet weak var textFieldPhoneNo: UITextField!
     
+    // 다음
     @IBOutlet weak var btnNext: UIButton!
 
+    // border field
     @IBOutlet weak var fieldName: UIStackView!
     @IBOutlet weak var fieldBirthDay: UIStackView!
     @IBOutlet weak var fieldTel: UIView!
     @IBOutlet weak var fieldPhoneNum: UIStackView!
     
-    @IBOutlet weak var dropTelView: UIView!
-    @IBOutlet weak var textTel: UITextField!
-    @IBOutlet weak var iconTel: UIImageView!
     
-    
-    // MARK: - Tel DropDown Variable
+    // MARK: - 통신사 DropDown Variable
     let dropdown = DropDown()
     let itemList = ["SKT", "KT", "LG U+", "SKT 알뜰폰", "KT 알뜰폰", "LG U+ 알뜰폰"  ]
     
     // MARK: - Color Variable
-    // color 정리 필요
     let MainColor1 = UIColor(named: "MainColor1")
     let MainColor2 = UIColor(named: "MainColor2")
-    let LightGrayColor = UIColor(named: "FontColorLightGray")
+    let LightGrayColor1 = UIColor(named: "LightGrayColor")
+    let LightGrayColor2 = UIColor.systemGray5
     let DisabledColor = UIColor(named: "DisabledColor")
-    let MinLightgray = UIColor.systemGray5
     
-    
+    // MARK: KetBoardEvent Protocol Variable
     var transformView: UIView { return self.view }
     
-    
+    // MARK: NextBtn Active Variable
     var inputFinish: [Bool] = [false, false, false, false, false]
     
     
@@ -66,20 +70,15 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         initUI()
         initFunc()
         setDelegate()
-        
-        // keyBoardEvent의 setupKeyboardEvent
-        setupKeyboardEvent()
-        
-        self.hideKeyboardWhenTappedAround()
-        
-        changeStatusBarBgColor(bgColor: UIColor.white)
+        setupKeyboardEvent() // keyBoardEvent의 setupKeyboardEvent
+        self.hideKeyboardWhenTappedAround() // 다른 곳 터치했을 때 키보드 내리는 기능
+        changeStatusBarBgColor(bgColor: UIColor.white) // StatusBar BackgroundColor 설정
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        // KeyBoardEvent의 removeKeyboardObserver
-        removeKeyboardObserver()
+        removeKeyboardObserver() // KeyBoardEvent의 removeKeyboardObserver
     }
     
     // MARK: - viewDidLayoutSubviews()
@@ -88,17 +87,20 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     }
     
         
-    // MARK: - Set init Function
+    // MARK: - Set initUI
     func initUI(){
+        setFont()
         setRadius()
         setDropDownCustomUI()
     }
      
-    func setBorder(){
-        fieldName.layer.addBorder([.bottom], color: MinLightgray, width: 1.0)
-        fieldBirthDay.layer.addBorder([.bottom], color: MinLightgray, width: 1.0)
-        fieldTel.layer.addBorder([.bottom], color: MinLightgray, width: 1.0)
-        fieldPhoneNum.layer.addBorder([.bottom], color: MinLightgray, width: 1.0)
+    func setFont(){
+        // ⭐️ TextField Font가 적용이 안되서 코드로 적용시켜주기
+        let fontR16 = UIFont(name: "NanumSquareOTFR", size: 16)
+        textFieldName.font = fontR16
+        textFieldBirth.font = fontR16
+        textTel.font = fontR16
+        textFieldPhoneNo.font = fontR16
     }
     
     func setRadius(){
@@ -111,12 +113,20 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         DropDown.appearance().textColor = UIColor.black // 아이템 텍스트 색상
         DropDown.appearance().selectedTextColor = MainColor1!// 선택된 아이템 텍스트 색상
         DropDown.appearance().backgroundColor = UIColor.white // 아이템 팝업 배경 색상
-        DropDown.appearance().selectionBackgroundColor = MinLightgray // 선택한 아이템 배경 색상
+        DropDown.appearance().selectionBackgroundColor = LightGrayColor2 // 선택한 아이템 배경 색상
         DropDown.appearance().setupCornerRadius(8)
         dropdown.dismissMode = .automatic // 팝업을 닫을 모드 설정
-        
     }
+    
+    func setBorder(){
+        fieldName.layer.addBorder([.bottom], color: LightGrayColor2, width: 1.0)
+        fieldBirthDay.layer.addBorder([.bottom], color: LightGrayColor2, width: 1.0)
+        fieldTel.layer.addBorder([.bottom], color: LightGrayColor2, width: 1.0)
+        fieldPhoneNum.layer.addBorder([.bottom], color: LightGrayColor2, width: 1.0)
+    }
+    
 
+    // MARK: Set initFunc
     func initFunc(){
         setDropDownFunction()
     }
@@ -171,11 +181,11 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
 
     @IBAction func btnSexMaleTapped(_ sender: UIButton) {
         btnSexMale.backgroundColor = MainColor1
-        btnSexFemale.backgroundColor = LightGrayColor
+        btnSexFemale.backgroundColor = LightGrayColor1
     }
     
     @IBAction func btnSexFemaleTapped(_ sender: UIButton) {
-        btnSexMale.backgroundColor = LightGrayColor
+        btnSexMale.backgroundColor = LightGrayColor1
         btnSexFemale.backgroundColor = MainColor1
     }
     
