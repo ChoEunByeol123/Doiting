@@ -44,6 +44,9 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     @IBOutlet weak var fieldTel: UIView!
     @IBOutlet weak var fieldPhoneNum: UIStackView!
     
+    @IBOutlet weak var wrapContent: UIStackView!
+    
+    
     
     // MARK: - 통신사 DropDown Variable
     let dropdown = DropDown()
@@ -57,7 +60,7 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     let DisabledColor = UIColor(named: "DisabledColor")
     
     // MARK: KetBoardEvent Protocol Variable
-    var transformView: UIView { return self.view }
+    var transformView: UIView { return self.wrapContent }
     
     // MARK: NextBtn Active Variable
     var inputFinish: [Bool] = [false, false, false, false, false]
@@ -75,6 +78,7 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         changeStatusBarBgColor(bgColor: UIColor.white) // StatusBar BackgroundColor 설정
     }
     
+    // MARK: - viewDidDisappear()
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
@@ -198,6 +202,47 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     }
     
 
+    @IBAction func btnNextTapped(_ sender: UIButton) {
+        let textContent = textFieldBirth.text ?? ""
+        
+        // keyboard가 내려가기 전에 다음 버튼을 눌러도 실행되도록
+        
+        let alert = UIAlertController(title: "알림", message: "생년월일이 올바르지 않습니다. 다시 입력해주세요. ", preferredStyle: UIAlertController.Style.alert)
+        // 메시지 창 컨트롤러에 들어갈 버튼 액션 객체 생성
+        let defaultAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
+            // 버튼 클릭시 실행되는 코드
+            return
+        }
+        //메시지 창 컨트롤러에 버튼 액션을 추가
+        alert.addAction(defaultAction)
+        
+        let year = Int(stringSplit(str: textContent, startingNumber: 0, endingNumber: 4))
+        let month = Int(stringSplit(str: textContent, startingNumber: 4, endingNumber: 6))
+        let day = Int(stringSplit(str: textContent, startingNumber: 6, endingNumber: 8))
+    
+        if(year! < 1800 || year! > 2500){
+            //메시지 창 컨트롤러를 표시
+            self.present(alert, animated: false)
+            return
+        }
+        if(month! < 1 || month! > 12){
+            //메시지 창 컨트롤러를 표시
+            self.present(alert, animated: false)
+            return
+        }
+        if(day! < 1 || day! > 31){
+            //메시지 창 컨트롤러를 표시
+            self.present(alert, animated: false)
+            return
+        }
+        
+
+        
+    }
+    
+    
+    
+    
     // MARK: - Etc Function
     func hideKeyboardWhenTappedAround(){
         // UITapGestureRecognizer 타입의 tap 변수 설정을 해준다.
@@ -205,6 +250,7 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         // cancelsTouchesInView는 뷰를 터치했을 때 정보들을 전달하게 되는데, 그 터치 정보를 중간에 커트하고 정보를 view에 보낼지 말지를 Bool 타입으로 설정하는 것.
         // 터치정보를 view에 중간에 끊김 없이 보내야 하니까 false로 설정
+        
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
@@ -236,11 +282,21 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         if textField == textFieldName{ textCountName.text = "\(textCount ?? 0)/10" }
         
         if textField == textFieldName && textCount != 0 { inputFinish[switchCount] = true }
-        else if textField == textFieldBirth && textCount == 8{ inputFinish[switchCount] = true }
+        else if textField == textFieldBirth && textCount == 8{
+            inputFinish[switchCount] = true
+        }
         else if textField == textFieldPhoneNo && (textCount == 10 || textCount == 11) { inputFinish[switchCount] = true }
         else { inputFinish[switchCount] = false }
         
         ChangebtnNextActiveYN()
+    }
+    
+    func stringSplit(str : String, startingNumber : Int, endingNumber : Int) -> String{
+        let startIndex = str.index(str.startIndex, offsetBy: startingNumber)// 사용자지정 시작인덱스
+        let endIndex = str.index(str.startIndex, offsetBy: endingNumber)// 사용자지정 끝인덱스
+        let sliced_str = str[startIndex ..< endIndex]
+        
+        return String(sliced_str)
     }
     
     
@@ -301,6 +357,7 @@ extension KeyboardEvent where Self: UIViewController{
         // currentTextField : 현재 응답을 받고 있는 UITextField를 알아낸다
         guard let keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
               let currentTextField = UIResponder.currentResponder as? UITextField else { return }
+            
         
         // Y축으로 키보드의 상단 위치
         let keyboardTopY = keyboardFrame.cgRectValue.origin.y
