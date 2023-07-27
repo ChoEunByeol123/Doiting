@@ -902,11 +902,11 @@
             <objects>
                 <viewController id="U4Z-MY-d6M" customClass="SignUp2ViewController" customModule="Doiting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GIQ-qJ-Ee0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MkR-yL-yo7">
-                                <rect key="frame" x="20" y="151" width="353" height="643"/>
+                                <rect key="frame" x="20" y="151" width="353" height="791"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xcC-Yg-QXp">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="52"/>
@@ -948,10 +948,10 @@
                                         </subviews>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvI-ZI-Pml">
-                                        <rect key="frame" x="0.0" y="82" width="353" height="487"/>
+                                        <rect key="frame" x="0.0" y="82" width="353" height="635"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="EuV-m9-tam">
-                                                <rect key="frame" x="0.0" y="0.0" width="353" height="500"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="605.33333333333337"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ptU-vW-vTd">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="76"/>
@@ -1234,7 +1234,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="O8Q-G0-dSF">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O8Q-G0-dSF">
                                                                 <rect key="frame" x="0.0" y="36" width="353" height="40"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="ex. 01012345678 (-빼고 입력 해주세요.)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OYW-Uk-Kvq">
@@ -1253,6 +1253,112 @@
                                                             <constraint firstItem="O8Q-G0-dSF" firstAttribute="leading" secondItem="H6C-1X-hAA" secondAttribute="leading" id="nZT-Pw-gSG"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ez6-Ub-oSD">
+                                                        <rect key="frame" x="0.0" y="515" width="353" height="55"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lKQ-1d-iPU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="0.0"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-QB-Npu">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="0.0"/>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="인증번호">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puQ-2U-Tkc">
+                                                                        <rect key="frame" x="67" y="0.0" width="7.6666666666666714" height="0.0"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" name="MainColor1"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lwj-DZ-dBQ">
+                                                                <rect key="frame" x="0.0" y="15" width="353" height="40"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="인증번호를 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GCt-U1-iDy">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
+                                                                        <attributedString key="attributedText"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="U0g-1C-hV8"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="lwj-DZ-dBQ" firstAttribute="leading" secondItem="ez6-Ub-oSD" secondAttribute="leading" id="ray-mM-FJY"/>
+                                                            <constraint firstAttribute="trailing" secondItem="lwj-DZ-dBQ" secondAttribute="trailing" id="zq0-oV-mqS"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="a0d-Ve-UFK">
+                                                        <rect key="frame" x="0.0" y="530" width="353" height="75.333333333333371"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="G5z-xG-1nq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="20.333333333333332"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqJ-TA-FUb">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="20.333333333333332"/>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="인증번호">
+                                                                                <attributes>
+                                                                                    <font key="NSFont" size="17" name=".AppleSDGothicNeoI-Regular"/>
+                                                                                    <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOT-9H-B4i">
+                                                                        <rect key="frame" x="67" y="0.0" width="7.6666666666666714" height="20.333333333333332"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" name="MainColor1"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EYp-nD-tfF">
+                                                                <rect key="frame" x="0.0" y="35.333333333333371" width="353" height="40"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="인증번호를 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KJW-fF-KeN">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="312.66666666666669" height="40"/>
+                                                                        <attributedString key="attributedText"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                    </textField>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAt-VV-na5">
+                                                                        <rect key="frame" x="312.66666666666669" y="0.0" width="40.333333333333314" height="40"/>
+                                                                        <attributedString key="attributedText">
+                                                                            <fragment content="00:00">
+                                                                                <attributes>
+                                                                                    <color key="NSColor" systemColor="systemGray4Color"/>
+                                                                                    <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="iAt-VV-na5" secondAttribute="trailing" id="kqf-NE-75U"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="pyW-zY-j0x"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="EYp-nD-tfF" firstAttribute="leading" secondItem="a0d-Ve-UFK" secondAttribute="leading" id="WJ0-2n-A3b"/>
+                                                            <constraint firstAttribute="trailing" secondItem="EYp-nD-tfF" secondAttribute="trailing" id="d2s-TK-16i"/>
+                                                        </constraints>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -1268,7 +1374,7 @@
                                         <viewLayoutGuide key="frameLayoutGuide" id="pgZ-ok-9uw"/>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sd-BK-LMw">
-                                        <rect key="frame" x="0.0" y="599" width="353" height="44"/>
+                                        <rect key="frame" x="0.0" y="747" width="353" height="44"/>
                                         <color key="backgroundColor" name="DisabledColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="K6d-ia-dUd"/>
@@ -1280,10 +1386,24 @@
                                         </state>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="다음">
+                                                <fragment content="인증번호">
                                                     <attributes>
-                                                        <font key="NSFont" size="15" name="NanumSquareOTFB"/>
+                                                        <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
                                                         <font key="NSOriginalFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content=" ">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="요청">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".AppleSDGothicNeoI-Regular"/>
+                                                        <font key="NSOriginalFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -1318,18 +1438,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fab-pb-r13"/>
+                    <size key="freeformSize" width="393" height="1000"/>
                     <connections>
                         <outlet property="btnNext" destination="7Sd-BK-LMw" id="0E9-mn-NhM"/>
                         <outlet property="btnSexFemale" destination="Axv-vb-zdK" id="3GA-tB-MgP"/>
                         <outlet property="btnSexMale" destination="eCQ-IK-3g2" id="l6D-ph-9w9"/>
                         <outlet property="dropTelView" destination="zqd-y7-hsU" id="reW-R7-HXJ"/>
                         <outlet property="fieldBirthDay" destination="Oqu-8f-2vM" id="ABz-ur-gs2"/>
+                        <outlet property="fieldCertificationNum" destination="a0d-Ve-UFK" id="VOg-Xu-4tl"/>
                         <outlet property="fieldName" destination="Qh0-KR-Sc0" id="ztq-ab-3La"/>
                         <outlet property="fieldPhoneNum" destination="O8Q-G0-dSF" id="4Pw-jQ-akG"/>
                         <outlet property="fieldTel" destination="zqd-y7-hsU" id="6gV-Jh-OjA"/>
                         <outlet property="iconTel" destination="Dde-7L-GjN" id="zME-Qo-HkI"/>
                         <outlet property="textCountName" destination="PB9-Fh-aUJ" id="xXi-oE-0qh"/>
+                        <outlet property="textCountTime" destination="iAt-VV-na5" id="ERW-fW-kqM"/>
                         <outlet property="textFieldBirth" destination="tqX-gd-hb0" id="gYU-49-FHU"/>
+                        <outlet property="textFieldCertificationNo" destination="KJW-fF-KeN" id="yZg-WD-AxO"/>
                         <outlet property="textFieldName" destination="cox-Ry-w52" id="gIS-fc-fcF"/>
                         <outlet property="textFieldPhoneNo" destination="OYW-Uk-Kvq" id="eBi-fH-6YJ"/>
                         <outlet property="textTel" destination="koH-Ee-46G" id="tvT-sa-qy9"/>

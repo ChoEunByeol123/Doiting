@@ -35,17 +35,21 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     // 휴대폰번호
     @IBOutlet weak var textFieldPhoneNo: UITextField!
     
+    // 인증번호
+    @IBOutlet weak var textFieldCertificationNo: UITextField!
+    @IBOutlet weak var textCountTime: UILabel!
+    
     // 다음
     @IBOutlet weak var btnNext: UIButton!
-
+    
     // border field
     @IBOutlet weak var fieldName: UIStackView!
     @IBOutlet weak var fieldBirthDay: UIStackView!
     @IBOutlet weak var fieldTel: UIView!
     @IBOutlet weak var fieldPhoneNum: UIStackView!
+    @IBOutlet weak var fieldCertificationNum: UIStackView!
     
     @IBOutlet weak var wrapContent: UIStackView!
-    
     
     
     // MARK: - 통신사 DropDown Variable
@@ -65,17 +69,21 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     // MARK: NextBtn Active Variable
     var inputFinish: [Bool] = [false, false, false, false, false]
     
+    // MARK: - NextBtn Active YN
+    var activeButton : Bool = false
+
     
     // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.hideKeyboardWhenTappedAround() // 다른 곳 터치했을 때 키보드 내리는 기능
+        changeStatusBarBgColor(bgColor: UIColor.white) // StatusBar BackgroundColor 설정
+        setupKeyboardEvent() // keyBoardEvent의 setupKeyboardEvent
+        
         initUI()
         initFunc()
         setDelegate()
-        setupKeyboardEvent() // keyBoardEvent의 setupKeyboardEvent
-        self.hideKeyboardWhenTappedAround() // 다른 곳 터치했을 때 키보드 내리는 기능
-        changeStatusBarBgColor(bgColor: UIColor.white) // StatusBar BackgroundColor 설정
     }
     
     // MARK: - viewDidDisappear()
@@ -84,18 +92,14 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         
         removeKeyboardObserver() // KeyBoardEvent의 removeKeyboardObserver
     }
-    
-    // MARK: - viewDidLayoutSubviews()
-    override func viewDidLayoutSubviews() {
-        setBorder()
-    }
-    
         
     // MARK: - Set initUI
     func initUI(){
         setFont()
         setRadius()
         setDropDownCustomUI()
+        setBorder()
+        fieldCertificationNum.isHidden = true
     }
      
     func setFont(){
@@ -127,6 +131,7 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         fieldBirthDay.layer.addBorder([.bottom], color: LightGrayColor2, width: 1.0)
         fieldTel.layer.addBorder([.bottom], color: LightGrayColor2, width: 1.0)
         fieldPhoneNum.layer.addBorder([.bottom], color: LightGrayColor2, width: 1.0)
+        fieldCertificationNum.layer.addBorder([.bottom], color: LightGrayColor2, width: 1.0)
     }
     
 
@@ -179,6 +184,8 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
         textFieldPhoneNo.delegate = self
         textFieldPhoneNo.addDoneButtonOnKeyboard()
         textFieldPhoneNo.addTarget(self, action: #selector(FieldDidChange), for: .editingChanged)
+        textFieldCertificationNo.delegate = self
+        textFieldCertificationNo.addDoneButtonOnKeyboard()
     }
     
     // MARK: - Tapped Function
@@ -203,41 +210,68 @@ class SignUp2ViewController: UIViewController, KeyboardEvent {
     
 
     @IBAction func btnNextTapped(_ sender: UIButton) {
-        let textContent = textFieldBirth.text ?? ""
         
-        // keyboard가 내려가기 전에 다음 버튼을 눌러도 실행되도록
-        
-        let alert = UIAlertController(title: "알림", message: "생년월일이 올바르지 않습니다. 다시 입력해주세요. ", preferredStyle: UIAlertController.Style.alert)
+        let alert : UIAlertController
         // 메시지 창 컨트롤러에 들어갈 버튼 액션 객체 생성
         let defaultAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default){(_) in
-            // 버튼 클릭시 실행되는 코드
-            return
+            return  // 버튼 클릭시 실행되는 코드
         }
-        //메시지 창 컨트롤러에 버튼 액션을 추가
-        alert.addAction(defaultAction)
         
-        let year = Int(stringSplit(str: textContent, startingNumber: 0, endingNumber: 4))
-        let month = Int(stringSplit(str: textContent, startingNumber: 4, endingNumber: 6))
-        let day = Int(stringSplit(str: textContent, startingNumber: 6, endingNumber: 8))
+        if(activeButton){
+            // 인증번호 일치하는지 확인
+            if(textFieldCertificationNo.text?.count != 4){
+                alert = UIAlertController(title: "알림", message: "인증번호는 4자리입니다. 다시 입력해주세요. ", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(defaultAction)
+                self.present(alert, animated: false)
+                return
+            }
+            
+            // 인증번호 일치하면 다음 화면으로 전환
+            
+        }
+        else{
+            let textContent = textFieldBirth.text ?? ""
+            
+            // keyboard가 내려가기 전에 다음 버튼을 눌러도 실행되도록
+            alert = UIAlertController(title: "알림", message: "생년월일이 올바르지 않습니다. 다시 입력해주세요. ", preferredStyle: UIAlertController.Style.alert)
+            
+            //메시지 창 컨트롤러에 버튼 액션을 추가
+            alert.addAction(defaultAction)
+            
+            let year = Int(stringSplit(str: textContent, startingNumber: 0, endingNumber: 4))
+            let month = Int(stringSplit(str: textContent, startingNumber: 4, endingNumber: 6))
+            let day = Int(stringSplit(str: textContent, startingNumber: 6, endingNumber: 8))
+        
+            if(year! < 1800 || year! > 2500){
+                //메시지 창 컨트롤러를 표시
+                self.present(alert, animated: false)
+                return
+            }
+            if(month! < 1 || month! > 12){
+                //메시지 창 컨트롤러를 표시
+                self.present(alert, animated: false)
+                return
+            }
+            if(day! < 1 || day! > 31){
+                //메시지 창 컨트롤러를 표시
+                self.present(alert, animated: false)
+                return
+            }
+            
+            activeButton = true
+            let text = NSAttributedString(string: "다음")
+            btnNext.setAttributedTitle(text, for: .normal)
+            fieldCertificationNum.isHidden = false
     
-        if(year! < 1800 || year! > 2500){
-            //메시지 창 컨트롤러를 표시
-            self.present(alert, animated: false)
-            return
+            
+            // 위의 내용들 수정 못하게 다 막아버리기
+            textFieldName.isEnabled = false
+            btnSexMale.isEnabled = false
+            btnSexFemale.isEnabled = false
+            textFieldBirth.isEnabled = false
+            // dropTelView.isFocused = false
+            textFieldPhoneNo.isEnabled = false
         }
-        if(month! < 1 || month! > 12){
-            //메시지 창 컨트롤러를 표시
-            self.present(alert, animated: false)
-            return
-        }
-        if(day! < 1 || day! > 31){
-            //메시지 창 컨트롤러를 표시
-            self.present(alert, animated: false)
-            return
-        }
-        
-
-        
     }
     
     
@@ -454,6 +488,7 @@ extension SignUp2ViewController : UITextFieldDelegate{
         if textField == textFieldName{ return text.count < 10 }
         if textField == textFieldBirth{ return text.count < 8 }
         if textField == textFieldPhoneNo{ return text.count < 11 }
+        if textField == textFieldCertificationNo { return text.count < 4}
         
         return true
     }
